@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheels Up Waste | Reliable Waste & Dumpster Services in Oxford, MA</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#16a34a',
+                            600: '#15803d',
+                            700: '#166534',
+                            800: '#14532d',
+                            dark: '#0f172a',
+                            amber: '#f59e0b',
+                            accent: '#22c55e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Oswald', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.75) 50%, rgba(22, 163, 74, 0.8) 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-800 text-slate-200 text-xs sm:text-sm py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="font-medium">Local & Family Operated in Oxford, MA</span>
+            </div>
+            <div class="flex items-center gap-6 text-xs sm:text-sm">
+                <a href="tel:5082773843" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5 font-semibold">
+                    <i class="fa-solid fa-phone text-emerald-400"></i> 508-277-3843
+                </a>
+                <a href="mailto:wheels_up_rentals@yahoo.com" class="hidden md:flex items-center gap-1.5 hover:text-emerald-400 transition-colors">
+                    <i class="fa-solid fa-envelope text-emerald-400"></i> wheels_up_rentals@yahoo.com
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="bg-brand-600 text-white p-3 rounded-xl shadow-md group-hover:bg-brand-700 transition-colors">
+                        <i class="fa-solid fa-truck-pickup text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading text-2xl font-bold tracking-tight text-slate-900 block leading-none">WHEELS UP <span class="text-brand-600">WASTE</span></span>
+                        <span class="text-xs text-slate-500 tracking-wider uppercase font-semibold">Oxford, MA • Waste & Dumpster Services</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-8 font-medium text-slate-600 text-sm">
+                    <a href="#services" class="hover:text-brand-600 transition-colors">Services</a>
+                    <a href="#dumpsters" class="hover:text-brand-600 transition-colors">Dumpster Rentals</a>
+                    <a href="#why-us" class="hover:text-brand-600 transition-colors">Why Choose Us</a>
+                    <a href="#service-area" class="hover:text-brand-600 transition-colors">Service Area</a>
+                    <a href="#contact" class="hover:text-brand-600 transition-colors">Contact</a>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="tel:5082773843" class="px-4 py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-50 hover:text-brand-700 font-semibold text-sm transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-brand-600"></i>
+                        <span>508-277-3843</span>
+                    </a>
+                    <button onclick="openQuoteModal()" class="px-5 py-2.5 rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-calculator"></i>
+                        <span>Get a Quote</span>
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+                    <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#services" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Services</a>
+            <a href="#dumpsters" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Dumpster Rentals</a>
+            <a href="#why-us" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Why Choose Us</a>
+            <a href="#service-area" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Service Area</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Contact</a>
+            <div class="pt-4 flex flex-col gap-2">
+                <a href="tel:5082773843" class="w-full text-center py-2.5 rounded-lg border border-slate-300 font-semibold text-slate-700">
+                    <i class="fa-solid fa-phone text-brand-600 mr-2"></i> Call 508-277-3843
+                </a>
+                <button onclick="toggleMobileMenu(); openQuoteModal();" class="w-full py-2.5 rounded-lg bg-brand-600 text-white font-semibold shadow">
+                    Get a Quote
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[580px] lg:min-h-[640px] flex items-center text-white bg-slate-900 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=1920" 
+                 alt="Waste Pickup and Dumpster Rental Service" 
+                 class="w-full h-full object-cover object-center"
+                 onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1920'">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+            <div class="max-w-3xl">
+                <!-- Location Tag -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs sm:text-sm font-semibold mb-6">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Serving Oxford, Massachusetts & Surrounding Communities</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                    Reliable Waste & Dumpster Services in Oxford, MA
+                </h1>
+
+                <p class="text-xl sm:text-2xl font-light text-slate-200 mb-4">
+                    Simple. Reliable. Local.
+                </p>
+
+                <p class="text-base sm:text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl">
+                    Wheels Up Waste provides dependable weekly curbside trash and recycling pickup, plus convenient 10- and 15-yard dumpster rentals for homes, cleanouts, renovations, and small projects.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4">
+                    <button onclick="openQuoteModal()" class="px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-lg shadow-lg hover:shadow-emerald-900/40 transition-all flex items-center gap-3 transform hover:-translate-y-0.5">
+                        <span>Get a Quote</span>
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </button>
+                    
+                    <a href="tel:5082773843" class="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur text-white font-bold text-lg border border-white/20 transition-all flex items-center gap-3">
+                        <i class="fa-solid fa-phone text-emerald-400"></i>
+                        <span>Call 508-277-3843</span>
+                    </a>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs sm:text-sm text-slate-300">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check-circle text-emerald-400"></i>
+                        <span>On-Time Delivery</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check-circle text-emerald-400"></i>
+                        <span>Transparent Pricing</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check-circle text-emerald-400"></i>
+                        <span>Locally Owned & Operated</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 font-bold uppercase tracking-wider text-sm">Our Core Offerings</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Waste Services Made Simple</h2>
+                <p class="text-slate-600 text-lg mt-4">
+                    Whether you need regular curbside pickup or a dumpster for your next project, Wheels Up Waste makes waste removal easy.
+                </p>
+            </div>
+
+            <!-- Service Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Service 1: Weekly Trash -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-48 rounded-xl overflow-hidden mb-6 bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Weekly Trash Pickup" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-slate-800">
+                                Residential
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-brand-600 flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">Weekly Trash Pickup</h3>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Keep your home or property clean with dependable weekly curbside trash pickup.
+                        </p>
+                    </div>
+                    <button onclick="openServiceDetailModal('Weekly Trash Pickup', 'Keep your home or property clean with dependable weekly curbside trash pickup. We provide prompt, scheduled weekly collection across Oxford, MA and neighboring towns. Our friendly crew ensures your neighborhood stays tidy and your trash is disposed of safely and responsibly.')" class="w-full py-2.5 rounded-lg border border-brand-600 text-brand-600 font-semibold text-sm hover:bg-brand-600 hover:text-white transition-all flex items-center justify-center gap-2">
+                        <span>Learn More</span>
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Service 2: Recycling Pickup -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-48 rounded-xl overflow-hidden mb-6 bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Recycling Pickup" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-emerald-700">
+                                Eco-Friendly
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-brand-600 flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-recycle"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">Recycling Pickup</h3>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Convenient curbside recycling pickup to help you responsibly manage everyday waste.
+                        </p>
+                    </div>
+                    <button onclick="openServiceDetailModal('Recycling Pickup', 'Convenient curbside recycling pickup to help you responsibly manage everyday waste. We accept paper, cardboard, plastics, and metal cans. Partnering with local recycling facilities to reduce landfill waste in Central Massachusetts.')" class="w-full py-2.5 rounded-lg border border-brand-600 text-brand-600 font-semibold text-sm hover:bg-brand-600 hover:text-white transition-all flex items-center justify-center gap-2">
+                        <span>Learn More</span>
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Service 3: 10-Yard Dumpsters -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-48 rounded-xl overflow-hidden mb-6 bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1503596476-1c12a8ba09a9?auto=format&fit=crop&q=80&w=800" 
+                                 alt="10-Yard Dumpster Rental" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-amber-700">
+                                Compact Size
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-dumpster"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">10-Yard Dumpsters</h3>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            A great option for smaller cleanouts, home projects, renovations, and general debris.
+                        </p>
+                    </div>
+                    <button onclick="openQuoteModal('10-Yard Dumpster')" class="w-full py-2.5 rounded-lg bg-brand-600 text-white font-semibold text-sm hover:bg-brand-700 transition-all flex items-center justify-center gap-2 shadow-sm">
+                        <span>Request a Dumpster</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Service 4: 15-Yard Dumpsters -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-48 rounded-xl overflow-hidden mb-6 bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=800" 
+                                 alt="15-Yard Dumpster Rental" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-brand-700">
+                                Popular Choice
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-brand-600 flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-dumpster"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">15-Yard Dumpsters</h3>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Need a little more room? Our 15-yard dumpsters are ideal for larger cleanouts and renovation projects.
+                        </p>
+                    </div>
+                    <button onclick="openQuoteModal('15-Yard Dumpster')" class="w-full py-2.5 rounded-lg bg-brand-600 text-white font-semibold text-sm hover:bg-brand-700 transition-all flex items-center justify-center gap-2 shadow-sm">
+                        <span>Request a Dumpster</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Dumpsters Dedicated Section -->
+    <section id="dumpsters" class="py-20 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-xl">
+                <!-- Background decorative elements -->
+                <div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-brand-600/20 blur-3xl"></div>
+                <div class="absolute -left-20 -top-20 w-96 h-96 rounded-full bg-emerald-500/10 blur-3xl"></div>
+
+                <div class="relative z-10 max-w-3xl mb-12">
+                    <span class="text-emerald-400 font-bold uppercase tracking-wider text-sm">Need a Dumpster?</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2 mb-4">The Right Size for Your Project</h2>
+                    <p class="text-slate-300 text-lg leading-relaxed">
+                        From garage cleanouts to home renovations, Wheels Up Waste offers convenient dumpster rentals without the hassle. Simple flat-rate options, on-time drop off and pick up.
+                    </p>
+                </div>
+
+                <!-- Dumpster Comparison Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+                    
+                    <!-- 10-Yard Card -->
+                    <div class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-8 hover:border-emerald-500/50 transition-all">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">10-Yard Dumpster</h3>
+                                <p class="text-slate-400 text-sm mt-1">Compact & Easy Driveway Fit</p>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-semibold">
+                                Small Projects
+                            </span>
+                        </div>
+                        <p class="text-slate-300 text-base mb-6 leading-relaxed">
+                            Perfect for smaller cleanouts, household projects, and renovation debris. Fits easily in most standard residential driveways with minimal footprint.
+                        </p>
+                        <ul class="space-y-3 mb-8 text-sm text-slate-300">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                <span>Holds approx. 3-4 pickup truck loads</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                <span>Great for basement & attic cleanouts</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                <span>Ideal for small deck or bathroom remodels</span>
+                            </li>
+                        </ul>
+                        <button onclick="openQuoteModal('10-Yard Dumpster')" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-all text-center block shadow-lg">
+                            Get Dumpster Pricing
+                        </button>
+                    </div>
+
+                    <!-- 15-Yard Card -->
+                    <div class="bg-slate-800/90 border-2 border-emerald-500/80 rounded-2xl p-8 relative shadow-2xl">
+                        <div class="absolute -top-3.5 right-6 bg-emerald-500 text-slate-900 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">
+                            Most Requested
+                        </div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">15-Yard Dumpster</h3>
+                                <p class="text-slate-400 text-sm mt-1">Extra Capacity & Versatility</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 text-base mb-6 leading-relaxed">
+                            More capacity for larger cleanouts, remodeling projects, and bigger jobs. Designed to handle medium-to-large home improvement waste efficiently.
+                        </p>
+                        <ul class="space-y-3 mb-8 text-sm text-slate-300">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                <span>Holds approx. 5-6 pickup truck loads</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                <span>Perfect for full kitchen or multi-room cleanouts</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                <span>Popular choice for estate cleanouts & roof repairs</span>
+                            </li>
+                        </ul>
+                        <button onclick="openQuoteModal('15-Yard Dumpster')" class="w-full py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold transition-all text-center block shadow-lg">
+                            Get Dumpster Pricing
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Wheels Up Waste Section -->
+    <section id="why-us" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 font-bold uppercase tracking-wider text-sm">The Wheels Up Difference</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Why Wheels Up Waste?</h2>
+                <p class="text-slate-600 text-lg mt-4">
+                    We pride ourselves on providing high-quality, friendly, and transparent waste collection services for our local community.
+                </p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-brand-600 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Local & Reliable</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        We’re a small, locally operated company serving Oxford, Massachusetts and the surrounding area with dependable service you can trust.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-brand-600 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Convenient Service</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Straightforward waste and dumpster services designed around your needs, hassle-free schedules, and prompt pickup times.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-brand-600 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-handshake font-bold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Personal Service</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        As a small business, we care about providing dependable, friendly service to every customer. You deal with real local people.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-brand-600 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-tags"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Simple Pricing</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Tell us what you need, and we’ll help you find the right service or dumpster size for your project without hidden fees.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Serving Oxford & Surrounding Communities Section -->
+    <section id="service-area" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div>
+                    <span class="text-brand-600 font-bold uppercase tracking-wider text-sm">Local Coverage</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 mb-6">
+                        Serving Oxford & Surrounding Communities
+                    </h2>
+                    <p class="text-slate-600 text-lg mb-6 leading-relaxed">
+                        Based in Oxford, Massachusetts, Wheels Up Waste is proud to provide local waste and dumpster services to homeowners, landlords, contractors, and small businesses in the area.
+                    </p>
+
+                    <!-- Interactive Availability Checker -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 mb-8">
+                        <h4 class="font-bold text-slate-900 mb-2 text-sm uppercase tracking-wider">Check Your Service Area</h4>
+                        <p class="text-slate-600 text-sm mb-4">Enter your town or ZIP code to verify immediate service availability:</p>
+                        
+                        <div class="flex gap-2">
+                            <input type="text" id="townInput" placeholder="e.g. Oxford, Webster, Auburn, 01540" class="flex-1 px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-600 text-sm">
+                            <button onclick="checkAvailability()" class="px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm transition-all whitespace-nowrap">
+                                Check Service Availability
+                            </button>
+                        </div>
+                        <div id="availabilityResult" class="mt-4 hidden p-3 rounded-xl text-sm font-medium"></div>
+                    </div>
+
+                    <!-- List of towns served -->
+                    <div class="flex flex-wrap gap-2 text-sm font-medium">
+                        <span class="px-3 py-1.5 rounded-lg bg-emerald-50 text-brand-700 border border-emerald-200">Oxford (01540)</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-emerald-50 text-brand-700 border border-emerald-200">Webster</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-emerald-50 text-brand-700 border border-emerald-200">Auburn</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-emerald-50 text-brand-700 border border-emerald-200">Charlton</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-emerald-50 text-brand-700 border border-emerald-200">Dudley</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-emerald-50 text-brand-700 border border-emerald-200">Sutton</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-emerald-50 text-brand-700 border border-emerald-200">Millbury</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 border border-slate-200">+ Surrounding Central MA Towns</span>
+                    </div>
+                </div>
+
+                <!-- Visual Area Representation -->
+                <div class="relative">
+                    <div class="relative h-[400px] sm:h-[480px] rounded-3xl overflow-hidden shadow-xl border border-slate-200">
+                        <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&q=80&w=1200" 
+                             alt="Oxford MA Service Area" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
+                        <div class="absolute bottom-8 left-8 right-8 text-white">
+                            <div class="bg-white/95 backdrop-blur text-slate-900 p-6 rounded-2xl shadow-lg">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-sm">
+                                        <i class="fa-solid fa-house font-bold"></i>
+                                    </div>
+                                    <h4 class="font-bold text-lg">Central MA Headquarters</h4>
+                                </div>
+                                <p class="text-slate-600 text-sm">Conveniently stationed right in Oxford, MA for fast, same-day or next-day dispatcher turnaround.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Ready to Get Rid of the Junk? CTA Section -->
+    <section id="contact" class="py-20 bg-brand-800 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-gradient-to-r from-brand-900 to-slate-900 rounded-3xl p-8 sm:p-14 border border-brand-700/50 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-10">
+                
+                <div class="max-w-2xl">
+                    <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold text-xs uppercase tracking-wider mb-4 border border-emerald-400/30">
+                        Get Started Today
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">
+                        Ready to Get Rid of the Junk?
+                    </h2>
+                    <p class="text-lg text-slate-200 mb-6 leading-relaxed">
+                        Whether you need regular weekly pickup or a dumpster for your next project, we're ready to help. Get in touch with Wheels Up Waste today.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-6 text-sm">
+                        <a href="tel:5082773843" class="flex items-center gap-3 bg-slate-800/80 hover:bg-slate-800 px-5 py-3 rounded-xl border border-slate-700 transition-all">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Call Us Directly</span>
+                                <span class="text-lg font-bold text-white">508-277-3843</span>
+                            </div>
+                        </a>
+
+                        <a href="mailto:wheels_up_rentals@yahoo.com" class="flex items-center gap-3 bg-slate-800/80 hover:bg-slate-800 px-5 py-3 rounded-xl border border-slate-700 transition-all">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Email Us</span>
+                                <span class="text-sm font-bold text-white">wheels_up_rentals@yahoo.com</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+                    <button onclick="openQuoteModal()" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-base shadow-lg transition-all text-center">
+                        Request a Quote
+                    </button>
+                    <a href="tel:5082773843" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-base border border-white/20 transition-all text-center">
+                        Call Now
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                
+                <!-- Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-brand-600 text-white p-2.5 rounded-lg">
+                            <i class="fa-solid fa-truck-pickup text-lg"></i>
+                        </div>
+                        <span class="font-heading text-2xl font-bold text-white tracking-tight">WHEELS UP <span class="text-emerald-500">WASTE</span></span>
+                    </div>
+                    <p class="text-sm leading-relaxed text-slate-400">
+                        Weekly Trash & Recycling Pickup | 10 & 15-Yard Dumpster Rentals
+                    </p>
+                    <div class="text-xs text-slate-500">
+                        Oxford, Massachusetts and surrounding areas.
+                    </div>
+                </div>
+
+                <!-- Navigation Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#services" class="hover:text-emerald-400 transition-colors">Weekly Trash Pickup</a></li>
+                        <li><a href="#services" class="hover:text-emerald-400 transition-colors">Curbside Recycling</a></li>
+                        <li><a href="#dumpsters" class="hover:text-emerald-400 transition-colors">10-Yard Dumpster Rental</a></li>
+                        <li><a href="#dumpsters" class="hover:text-emerald-400 transition-colors">15-Yard Dumpster Rental</a></li>
+                        <li><a href="#service-area" class="hover:text-emerald-400 transition-colors">Oxford Service Area</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Direct Contact</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-emerald-400 mt-1"></i>
+                            <span>Oxford, Massachusetts</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-emerald-400"></i>
+                            <a href="tel:5082773843" class="hover:text-white transition-colors">508-277-3843</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-emerald-400"></i>
+                            <a href="mailto:wheels_up_rentals@yahoo.com" class="hover:text-white transition-colors truncate">wheels_up_rentals@yahoo.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Business Hours & Service Note -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Customer Commitment</h4>
+                    <p class="text-xs leading-relaxed text-slate-400 mb-4">
+                        As a small, local business, we prioritize customer satisfaction, safe delivery, and clean equipment for every home and job site.
+                    </p>
+                    <div class="inline-block bg-slate-900 border border-slate-800 rounded-lg p-3 text-xs text-emerald-400 font-medium">
+                        <i class="fa-solid fa-circle-check mr-1"></i> Serving Oxford, MA & Surrounding Towns
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-800/80 text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>&copy; <span id="yearSpan"></span> Wheels Up Waste. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" onclick="alertModal('Privacy Policy', 'Wheels Up Waste values your privacy. We store your contact details strictly to fulfill trash pickup and dumpster rental requests.'); return false;" class="hover:text-slate-400">Privacy Policy</a>
+                    <a href="#" onclick="alertModal('Terms of Service', 'Dumpster rentals must adhere to maximum weight limits and standard non-hazardous material rules in Oxford, MA.'); return false;" class="hover:text-slate-400">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quote Request Modal -->
+    <div id="quoteModal" class="fixed inset-0 z-50 hidden bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl border border-slate-100 overflow-hidden relative my-8">
+            <button onclick="closeQuoteModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="p-6 sm:p-8">
+                <div class="flex items-center gap-3 mb-2">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-brand-600 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900">Request a Free Quote</h3>
+                </div>
+                <p class="text-slate-600 text-sm mb-6">Fill out the quick form below or call <a href="tel:5082773843" class="text-brand-600 font-bold underline">508-277-3843</a> for immediate help.</p>
+
+                <form id="quoteForm" onsubmit="submitQuoteForm(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Select Service Needed</label>
+                        <select id="quoteService" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-600 text-sm bg-white">
+                            <option value="Weekly Trash Pickup">Weekly Trash Pickup</option>
+                            <option value="Weekly Recycling Pickup">Weekly Recycling Pickup</option>
+                            <option value="10-Yard Dumpster Rental">10-Yard Dumpster Rental</option>
+                            <option value="15-Yard Dumpster Rental">15-Yard Dumpster Rental</option>
+                            <option value="Trash + Recycling Combo">Trash + Recycling Combo</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Full Name</label>
+                            <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-600 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Phone Number</label>
+                            <input type="tel" required placeholder="508-000-0000" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-600 text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Service Address / Town</label>
+                        <input type="text" required placeholder="e.g. Main St, Oxford, MA" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-600 text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Project Details or Preferred Date</label>
+                        <textarea rows="3" placeholder="Tell us about your project or preferred pickup day..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-600 text-sm"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold shadow-lg transition-all text-center">
+                        Submit Quote Request
+                    </button>
+                </form>
+
+                <div id="quoteSuccessMessage" class="hidden text-center py-8">
+                    <div class="w-16 h-16 bg-emerald-100 text-brand-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-900 mb-2">Quote Request Received!</h4>
+                    <p class="text-slate-600 text-sm mb-6">Thank you for reaching out to Wheels Up Waste. We will contact you shortly with transparent pricing and scheduling options.</p>
+                    <button onclick="closeQuoteModal()" class="px-6 py-2.5 bg-slate-900 text-white rounded-xl text-sm font-bold">
+                        Done
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Detail Modal -->
+    <div id="infoModal" class="fixed inset-0 z-50 hidden bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl p-6 sm:p-8 relative">
+            <button onclick="closeInfoModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 text-slate-500 hover:text-slate-800 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 id="infoModalTitle" class="text-2xl font-bold text-slate-900 mb-4"></h3>
+            <p id="infoModalBody" class="text-slate-600 text-sm leading-relaxed mb-6"></p>
+            <button onclick="closeInfoModal()" class="w-full py-3 rounded-xl bg-brand-600 text-white font-bold">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Set dynamic copyright year
+        document.getElementById('yearSpan').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.toggle('hidden');
+            if(menu.classList.contains('hidden')) {
+                icon.className = 'fa-solid fa-bars text-xl';
+            } else {
+                icon.className = 'fa-solid fa-xmark text-xl';
+            }
+        }
+
+        // Quote Modal Logic
+        function openQuoteModal(serviceName = 'Weekly Trash Pickup') {
+            const modal = document.getElementById('quoteModal');
+            const select = document.getElementById('quoteService');
+            if(serviceName) {
+                for(let option of select.options) {
+                    if(option.value.toLowerCase().includes(serviceName.toLowerCase())) {
+                        option.selected = true;
+                        break;
+                    }
+                }
+            }
+            document.getElementById('quoteForm').classList.remove('hidden');
+            document.getElementById('quoteSuccessMessage').classList.add('hidden');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function submitQuoteForm(e) {
+            e.preventDefault();
+            document.getElementById('quoteForm').classList.add('hidden');
+            document.getElementById('quoteSuccessMessage').classList.remove('hidden');
+        }
+
+        // Service Detail Info Modal
+        function openServiceDetailModal(title, text) {
+            document.getElementById('infoModalTitle').textContent = title;
+            document.getElementById('infoModalBody').textContent = text;
+            document.getElementById('infoModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeInfoModal() {
+            document.getElementById('infoModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function alertModal(title, text) {
+            openServiceDetailModal(title, text);
+        }
+
+        // Service Availability Checker
+        function checkAvailability() {
+            const input = document.getElementById('townInput').value.trim().toLowerCase();
+            const result = document.getElementById('availabilityResult');
+            result.classList.remove('hidden');
+
+            const supportedTowns = ['oxford', 'webster', 'auburn', 'charleton', 'charlton', 'dudley', 'sutton', 'millbury', '01540', '01570', '01501', '01507', '01590'];
+
+            if (!input) {
+                result.className = "mt-4 p-3.5 rounded-xl text-sm font-medium bg-amber-50 text-amber-800 border border-amber-200";
+                result.innerHTML = `<i class="fa-solid fa-triangle-exclamation mr-1.5"></i> Please enter your town name or ZIP code.`;
+                return;
+            }
+
+            const isMatch = supportedTowns.some(town => input.includes(town));
+
+            if (isMatch || input.includes('ma') || input.includes('mass')) {
+                result.className = "mt-4 p-3.5 rounded-xl text-sm font-medium bg-emerald-50 text-emerald-800 border border-emerald-200";
+                result.innerHTML = `<i class="fa-solid fa-circle-check mr-1.5 text-emerald-600"></i> Great news! <strong>${input.toUpperCase()}</strong> is in our primary service coverage area. Call us at 508-277-3843 to confirm schedule.`;
+            } else {
+                result.className = "mt-4 p-3.5 rounded-xl text-sm font-medium bg-blue-50 text-blue-800 border border-blue-200";
+                result.innerHTML = `<i class="fa-solid fa-circle-info mr-1.5 text-blue-600"></i> We frequently serve surrounding areas near Oxford, MA! Call 508-277-3843 to check your exact street.`;
+            }
+        }
+    </script>
+</body>
+</html>
